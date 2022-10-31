@@ -1,8 +1,9 @@
 [package]
 name = "sevensegment-parser"
 description = "A small library for parsing SSDs. Intended for personal use only & not maintained."
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
+licesne = "MIT"
 
 [[example]]
 name = "main"
