@@ -5,16 +5,16 @@ use std::fmt::Debug;
 
 mod utils;
 
-#[derive(PartialEq, PartialOrd, Debug)]
+#[derive(PartialEq, PartialOrd, Copy, Clone, Debug)]
 pub enum SSDPart {
-  UpperTop = 0,
-  UpperLeft = 1,
-  UpperRight = 2,
-  Middle = 3,
-  LowerLeft = 4,
-  LowerRight = 5,
-  LowerBottom = 6,
-  Dot = 7,
+  UpperTop = 1,
+  UpperLeft = 10,
+  UpperRight = 11,
+  Middle = 100,
+  LowerLeft = 101,
+  LowerRight = 110,
+  LowerBottom = 111,
+  Dot = 1000,
 }
 
 struct SSDChars {
