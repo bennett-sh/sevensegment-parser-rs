@@ -1,12 +1,19 @@
 
-use sevensegment_parser::read_number;
-use sevensegment_parser::get_segment_value;
+use sevensegment_parser::{read_number, get_segment_value, parse_parts, parts_to_number};
 
 fn main() -> std::io::Result<()> {
   use sevensegment_parser::SSDPart::*;
 
+  println!("test: {}", parts_to_number(vec![
+    Middle, UpperLeft, UpperRight, LowerRight
+  ]));
+
+  for part in parse_parts(102334) {
+    print!("{:?}, ", part)
+  }
+
   println!(
-    "{}",
+    "\n{}",
     get_segment_value(vec![UpperLeft, UpperTop, UpperRight, Middle, LowerLeft, LowerRight, LowerBottom])
       .unwrap()
       .number

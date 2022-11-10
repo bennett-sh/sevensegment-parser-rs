@@ -9,12 +9,33 @@ mod utils;
 pub enum SSDPart {
   UpperTop = 1,
   UpperLeft = 10,
-  UpperRight = 11,
-  Middle = 100,
-  LowerLeft = 101,
-  LowerRight = 110,
-  LowerBottom = 111,
-  Dot = 1000,
+  UpperRight = 100,
+  Middle = 1000,
+  LowerLeft = 10000,
+  LowerRight = 100000,
+  LowerBottom = 1000000,
+  Dot = 10000000,
+}
+
+pub fn parse_parts(n: u32) -> Vec<SSDPart> {
+  let mut result: Vec<SSDPart> = vec![];
+  use SSDPart::*;
+
+  for part in vec![UpperTop, UpperLeft, UpperRight, Middle, LowerLeft, LowerRight, LowerBottom, Dot] {
+    if (n & (part as u32)) == (part as u32) {
+      result.push(part)
+    }
+  }
+
+  result
+}
+
+pub fn parts_to_number(parts: Vec<SSDPart>) -> u32 {
+  let mut result = 0;
+
+  parts.iter().for_each(|p| result = result | p.clone() as u32);
+
+  result
 }
 
 struct SSDChars {
